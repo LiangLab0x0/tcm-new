@@ -51,7 +51,7 @@ const Navigation: React.FC = () => {
             </div>
             {/* 桌面端显示完整标题，移动端隐藏 */}
             <div className="hidden lg:block">
-              <h1 className="text-xl font-bold text-gray-800">中医药专家智能系统 v9.0</h1>
+              <h1 className="text-xl font-bold text-gray-800">中医药专家数据库系统</h1>
               <p className="text-xs text-gray-500">专家引领 • 药材精研 • 传承创新</p>
             </div>
           </div>
