@@ -65,8 +65,12 @@ const ChinaMap: React.FC = () => {
   const provinceStats = useMemo(() => {
     const statsMap = new Map<string, ProvinceStats>();
     
+    // 确保 herbs 是数组
+    const herbsArray = herbs || [];
+    const expertsArray = experts || [];
+    
     // 统计药材
-    herbs.forEach(herb => {
+    herbsArray.forEach(herb => {
       if (herb.origin && Array.isArray(herb.origin)) {
         herb.origin.forEach(origin => {
           const short = normalizeShort(origin);
@@ -89,7 +93,7 @@ const ChinaMap: React.FC = () => {
     });
     
     // 统计专家
-    experts.forEach(expert => {
+    expertsArray.forEach(expert => {
       let provinceName = '';
       
       // 优先使用 place_of_origin

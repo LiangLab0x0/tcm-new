@@ -45,7 +45,8 @@ const TCMNetwork: React.FC = () => {
 
     // 添加专家节点
     if (filters.nodeTypes.includes('expert')) {
-      experts.forEach(expert => {
+      const expertsArray = experts || [];
+      expertsArray.forEach(expert => {
         nodes.push({
           id: expert.id,
           type: 'expert',
@@ -137,7 +138,8 @@ const TCMNetwork: React.FC = () => {
     }
 
     // 生成边/关系
-    experts.forEach(expert => {
+    const expertsArray = experts || [];
+    expertsArray.forEach(expert => {
       // 专家 -> 药方关系
       if (expert.relatedFormulas) {
         expert.relatedFormulas.forEach(formula => {

@@ -150,7 +150,8 @@ export const useAppStore = create<AppState>()(
 
       filterHerbs: () => {
         const { herbs, searchFilters } = get();
-        let filtered = [...herbs];
+        const herbsArray = herbs || [];
+        let filtered = [...herbsArray];
 
         // 文本搜索
         if (searchFilters.searchTerm.trim()) {
@@ -205,7 +206,8 @@ export const useAppStore = create<AppState>()(
 
       filterExperts: () => {
         const { experts, expertSearchFilters } = get();
-        let filtered = [...experts];
+        const expertsArray = experts || [];
+        let filtered = [...expertsArray];
 
         // 文本搜索
         if (expertSearchFilters.searchTerm.trim()) {
@@ -379,11 +381,12 @@ export const useAppStore = create<AppState>()(
       // 统计数据
       getStats: () => {
         const { herbs } = get();
-        const categories = new Set(herbs.map(h => h.category));
-        const provinces = new Set(herbs.flatMap(h => h.origin || []));
+        const herbsArray = herbs || [];
+        const categories = new Set(herbsArray.map(h => h.category));
+        const provinces = new Set(herbsArray.flatMap(h => h.origin || []));
         
         return {
-          total: herbs.length,
+          total: herbsArray.length,
           categories: categories.size,
           provinces: provinces.size
         };

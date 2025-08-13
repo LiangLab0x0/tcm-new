@@ -13,8 +13,9 @@ const OriginMap: React.FC = () => {
   // 处理省份数据
   const provinceData = useMemo(() => {
     const provinceMap = new Map<string, { count: number; herbs: string[] }>();
+    const herbsArray = herbs || [];
     
-    herbs.forEach(herb => {
+    herbsArray.forEach(herb => {
       if (herb.origin) {
         herb.origin.forEach(province => {
           if (!provinceMap.has(province)) {
